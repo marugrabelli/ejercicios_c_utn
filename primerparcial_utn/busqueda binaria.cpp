@@ -1,11 +1,7 @@
-/******************************************************************************
-diseñar un algoritmo recursivo, que permita invertir el contenido de un
-vector. Como indica el ejemplo:
-Vector original: 28 35 12 43 56 77
-Vector invertido: 77 56 43 12 35 28
-El algoritmo no podrá usar un vector auxiliar
 
-*******************************************************************************/
+//El algoritmo no podrá usar un vector auxiliar
+
+
 
 
 
