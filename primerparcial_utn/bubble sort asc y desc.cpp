@@ -1,71 +1,32 @@
+
+
+*****************************************************************
+//invertir vector con ordenamiento binario
+******************************************************************
 #include <iostream>
 using namespace std;
 
-void ordernarVectorDesc(int tam, int vec[]){
-    for(int i=0;i<tam-1;i++) {
-        for (int j=0;j<tam-i-1;j++)  {
-            if(vec[j]<vec[j+1]){
-                int aux= vec[j];
-                vec[j]=vec[j+1];
-                vec[j+1]=aux;
-            }
-        }
+void invertir(int tam, int n[], int i) {
+    if (i < tam/2) {
+        int aux = n[i];
+        n[i] = n[tam-i-1];
+        n[tam-i-1] = aux;
+        invertir(tam, n, i+1);
     }
-    cout << "Vector ordenado de forma descendente: ";
-    for(int i=0;i<tam;i++) {
-        cout << vec[i] << " ";
-    }
-    cout << endl;
+    return;
 }
 
-void ordernarVectorAsc(int tam, int vec[]){
-    for (int i = 0; i < tam - 1; i++) {
-        for (int j = 0; j < tam - i - 1; j++) {
-            if (vec[j] > vec[j+1]) {
-                int aux = vec[j];
-                vec[j] = vec[j+1];
-                vec[j+1] = aux;
-            }
-        }
-    }
-    cout << "Vector ordenado de forma ascendente: ";
-    for(int i=0;i<tam;i++) {
-        cout << vec[i] << " ";
-    }
-    cout << endl;
-}
+int main() {
+    int v[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+    invertir(11, v, 0);
 
-bool funcion_uno(int v1[],int v2[], int i, int tam){
-    if(i<tam && (i%2|| v2[i]<v1[i])){
-        v2[i]=v1[i];
-        return true;
-    }
-    return false;
-}
-
-int main(){
-    int tam=5;
-    int vec[tam] = {5,8,7,9,3 };
-
-    cout << "Vector original: ";
-    for(int i = 0; i < tam; i++){
-        cout << vec[i] << " ";
+    cout << "Vector invertido: ";
+    for (int i = 0; i < 11; i++) {
+         cout << "v[" << i << "]= " << v[i] << endl;
     }
     cout << endl;
 
-    ordernarVectorDesc(tam, vec);
-    ordernarVectorAsc(tam, vec);
-
-    int vec1[10]={32,41,50,42,33,87,91,64,39,11};
-    int vec2[10]= {9,8,7,6,5,4,3,2,1,0};
-
-    if (!funcion_uno(vec1, vec2, 3, 45)){
-        cout <<"No hubo cambio"<<endl;
-    }
-    else {
-        cout <<"Hubo cambio"<<endl;
-    }
-
+    getch();
     return 0;
 }
 
